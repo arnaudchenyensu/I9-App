@@ -1,6 +1,7 @@
 class { 'apache':
 	mpm_module => 'prefork',
 	default_vhost => false,
+	default_mods => true,
 }
 
 include apache
@@ -27,11 +28,14 @@ class { 'apache::mod::php':
     require => Exec['update'],
 }
 
-Class['apache'] -> Class['apache::mod::php'] -> Exec['install_mcrypt']
+apache::mod { 'rewrite': }
+
+# Class['apache'] -> Class['apache::mod::php'] -> Exec['install_mcrypt']
 
 apache::vhost { "twitter-like":
     port => 80,
-    docroot => "/twitter-like",
+    docroot => "/twitter-like/public",
+    override => "All",
 }
 
 file { "/vagrant/index.php":
