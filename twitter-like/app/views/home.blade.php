@@ -4,7 +4,7 @@
 </head>
 <body>
 
-	{{ Form::open(array('url' => 'login')) }}
+	{{ Form::open(array('url' => 'user')) }}
 		    {{ Form::label('username', 'Username: ') }} 
 		    {{ Form::text('username') }} </br>
 

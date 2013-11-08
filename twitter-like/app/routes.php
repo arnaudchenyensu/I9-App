@@ -16,13 +16,15 @@ Route::get('/', function()
 	return View::make('home');
 });
 
-Route::post('login', function()
-{
-	$input = Input::all();
-	$user = User::create(array(
-		'username' => $input['username'],
-		'email' => $input['email'],
-	));
+Route::resource('user', 'UserController');
 
-	return View::make('hello');
-});
+// Route::post('login', function()
+// {
+// 	$input = Input::all();
+// 	$user = User::create(array(
+// 		'username' => $input['username'],
+// 		'email' => $input['email'],
+// 	));
+
+// 	return View::make('hello');
+// });
