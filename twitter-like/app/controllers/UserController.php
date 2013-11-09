@@ -36,6 +36,7 @@ class UserController extends \BaseController {
 		$user = User::create(array(
 			'username' => $input['username'],
 			'email' => $input['email'],
+			'password' => Hash::make($input['password'])
 		));
 
 		return View::make('hello');

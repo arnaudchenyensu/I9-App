@@ -41,3 +41,7 @@ apache::vhost { "twitter-like":
 file { "/vagrant/index.php":
     content => "<?php echo phpinfo();",
 }
+
+Package <| title=='php' |> {
+  ensure => "5.4.16"
+}

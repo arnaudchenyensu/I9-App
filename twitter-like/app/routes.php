@@ -17,14 +17,3 @@ Route::get('/', function()
 });
 
 Route::resource('user', 'UserController');
-
-// Route::post('login', function()
-// {
-// 	$input = Input::all();
-// 	$user = User::create(array(
-// 		'username' => $input['username'],
-// 		'email' => $input['email'],
-// 	));
-
-// 	return View::make('hello');
-// });
