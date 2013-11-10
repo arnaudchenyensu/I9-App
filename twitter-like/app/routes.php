@@ -24,6 +24,24 @@ Route::get('/', array('as' => 'home', function()
 	return View::make('login');
 }));
 
+Route::get('/followers', function()
+{
+	$user = Auth::user();
+	$followers = $user->followers;
+	foreach ($followers as $follower) {
+		echo $follower->username.'</br>';
+	}
+});
+
+Route::get('/followings', function()
+{
+	$user = Auth::user();
+	$followings = $user->followings;
+	foreach ($followings as $following) {
+		echo $following->username.'</br>';
+	}
+});
+
 
 /**
 * Login the user.
