@@ -15,7 +15,7 @@ class CreateTweetsTable extends Migration {
 	    {
 	        $table->increments('id');
 	        $table->string('text');
-	        $table->string('username');
+	        $table->string('user_id');
 	        $table->timestamps();
 	    });
 	}
