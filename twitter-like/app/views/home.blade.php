@@ -4,6 +4,8 @@
 </head>
 <body>
 
+	{{ Session::get('message'); }}
+
 	{{ Form::open(array('url' => 'login')) }}
 		    {{ Form::label('login', 'Username or email: ') }} 
 		    {{ Form::text('login') }} </br>

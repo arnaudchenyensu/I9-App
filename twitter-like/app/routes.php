@@ -43,7 +43,7 @@ Route::post('/login', function()
 	} else {
 		// authentication failure! lets go back to the login page
         return Redirect::route('home')
-            ->with('flash_error', 'Your username/password combination was incorrect.')
+            ->with('message', 'Your username/password combination was incorrect.')
             ->withInput();
 	}
 });
