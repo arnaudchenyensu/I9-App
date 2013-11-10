@@ -13,7 +13,12 @@
 
 Route::get('/', array('as' => 'home', function()
 {
-	return View::make('home');
+
+	if (Auth::check()) {
+		return View::make('home');
+	}
+
+	return View::make('login');
 }));
 
 
@@ -36,15 +41,12 @@ Route::post('/login', function()
 	);
 
 	if (Auth::attempt($username_login) || Auth::attempt($email_login)) {		
-		// return Redirect::intended('dashboard');
-		// return Redirect::route('home')
-  //     		->with('flash_notice', 'You are successfully logged in.');
-		return var_dump('User logged');
+		return Redirect::route('home')
+      		->with('message', 'You are successfully logged in.');
 	} else {
 		// authentication failure! lets go back to the login page
         return Redirect::route('home')
-            ->with('message', 'Your username/password combination was incorrect.')
-            ->withInput();
+            ->with('message', 'Your username/password combination was incorrect.');
 	}
 });
 
