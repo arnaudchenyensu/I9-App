@@ -4,12 +4,12 @@
 </head>
 <body>
 
-	{{ Form::open(array('url' => 'user')) }}
-		    {{ Form::label('username', 'Username or email: ') }} 
-		    {{ Form::text('username') }} </br>
+	{{ Form::open(array('url' => 'login')) }}
+		    {{ Form::label('login', 'Username or email: ') }} 
+		    {{ Form::text('login') }} </br>
 
-		    {{ Form::label('email', 'Email: ') }}
-		    {{ Form::email('email') }} </br>
+		    {{ Form::label('password', 'Password: ') }}
+		    {{ Form::password('password') }} </br>
 
 		    {{ Form::submit('Sign in') }} </br>
 		    
@@ -18,7 +18,7 @@
 	{{ Form::close() }}
 	
 	<h3>New to Twitter? Sign up</h3>
-	{{ Form::open(array('url' => 'user')) }}
+	{{ Form::open(array('url' => 'users')) }}
 		    {{ Form::label('username', 'Username: ') }} 
 		    {{ Form::text('username') }} </br>
 
