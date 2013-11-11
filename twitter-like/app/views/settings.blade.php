@@ -1,33 +1,33 @@
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+@extends('master')
+
+@section('content')
 
 	{{ Form::open(array('route' => array('users.update', $user->id), 'method' => 'put')) }}
-		    {{ Form::label('text', 'Change your Username: ') }} 
-		    {{ Form::text('username') }}
-		    {{ Form::submit('Change') }} </br>
+			<div class="col-xs-3">
+		    {{ Form::text('username', null, array('placeholder'=>'Change your Username', 'class'=>'form-control')) }}
+			</div>
+		    {{ Form::submit('Update', array('class'=>'btn btn-default')) }} </br>
 		    {{ Session::get('username_message') }}
 	{{ Form::close() }}
 
 	{{ Form::open(array('route' => array('users.update', $user->id), 'method' => 'put')) }}
-		    {{ Form::label('text', 'Change your Email adress: ') }} 
-		    {{ Form::email('email') }}
-		    {{ Form::submit('Change') }} </br>
+			<div class="col-xs-3">
+		    {{ Form::email('email', null, array('placeholder'=>'Change your Email adress', 'class'=>'form-control')) }}
+			</div>
+		    {{ Form::submit('Update', array('class'=>'btn btn-default')) }} </br>
 		    {{ Session::get('email_message') }}
 	{{ Form::close() }}
 
 	{{ Form::open(array('route' => array('users.update', $user->id), 'method' => 'put')) }}
-		    {{ Form::label('text', 'Change your password: ') }} 
-		    {{ Form::password('password') }}
-		    {{ Form::submit('Change') }} </br>
+			<div class="col-xs-3">
+		    {{ Form::password('password', array('placeholder'=>'Change your password', 'class'=>'form-control')) }}
+			</div>
+		    {{ Form::submit('Update', array('class'=>'btn btn-default')) }} </br>
 		    {{ Session::get('password_message') }}
 	{{ Form::close() }}
 
 	{{ Form::open(array('route' => array('users.destroy', $user->id), 'method' => 'delete')) }}
-		    {{ Form::submit('Delete account') }} </br>
+		    {{ Form::submit('Delete account', array('class'=>'btn btn-default')) }} </br>
 	{{ Form::close() }}
 
-</body>
-</html>
+@stop

@@ -1,37 +1,41 @@
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+@extends('master')
 
+@section('content')
+
+	<h3>Sign in</h3>
 	{{ Session::get('message') }}
-
+	
 	{{ Form::open(array('url' => 'login')) }}
-		    {{ Form::label('login', 'Username or email: ') }} 
-		    {{ Form::text('login') }} </br>
+		<div class="col-xs-2">
+	    {{ Form::text('login', null, array('placeholder'=>'Username or email', 'class'=>'form-control')) }} </br>
+		</div>
+		
+		<div class="col-xs-2">
+	    {{ Form::password('password', array('placeholder'=>'Password', 'class'=>'form-control')) }} </br>
+		</div>
 
-		    {{ Form::label('password', 'Password: ') }}
-		    {{ Form::password('password') }} </br>
-
-		    {{ Form::submit('Sign in') }} </br>
-		    
-		    <!-- TODO -->
-			{{ Form::checkbox('remember') }} Remember me - Forgot password
+	    {{ Form::submit('Sign in', array('class'=>'btn btn-default')) }} </br>
+	    
+	    <!-- TODO -->
+		{{-- Form::checkbox('remember') --}} 
+		<!-- <p>Remember me - Forgot password</p> -->
 	{{ Form::close() }}
 	
 	<h3>New to Twitter? Sign up</h3>
 	{{ Form::open(array('url' => 'users')) }}
-		    {{ Form::label('username', 'Username: ') }} 
-		    {{ Form::text('username') }} </br>
+		<div class="col-xs-2">
+	    {{ Form::text('username', null, array('placeholder'=>'Username', 'class'=>'form-control')) }} </br>
+		</div>
 
-		    {{ Form::label('email', 'Email: ') }}
-		    {{ Form::email('email') }} </br>
+		<div class="col-xs-2">
+	    {{ Form::email('email', null, array('placeholder'=>'Email', 'class'=>'form-control')) }} </br>
+		</div>
 
-		    {{ Form::label('password', 'Password: ') }}
-		    {{ Form::password('password') }} </br>
+		<div class="col-xs-2">
+	    {{ Form::password('password', array('placeholder'=>'password', 'class'=>'form-control')) }} </br>
+		</div>
 
-		    {{ Form::submit('Sign up') }}
+	    {{ Form::submit('Sign up', array('class'=>'btn btn-default')) }}
 	{{ Form::close() }}
 
-</body>
-</html>
+@stop
