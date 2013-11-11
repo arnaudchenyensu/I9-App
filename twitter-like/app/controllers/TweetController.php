@@ -45,6 +45,8 @@ class TweetController extends \BaseController {
 				'text' => $input['text'],
 				'user_id' => Auth::User()->id
 			));
+			return Redirect::route('home')
+      			->with('message', 'Tweet posted!');
 		}
 	}
 

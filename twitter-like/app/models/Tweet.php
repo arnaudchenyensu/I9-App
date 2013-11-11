@@ -2,6 +2,8 @@
 
 class Tweet extends Eloquent {
 
+	protected $guarded = array('id');
+	
 	/**
 	 * Tweet has only one User.
 	 */
