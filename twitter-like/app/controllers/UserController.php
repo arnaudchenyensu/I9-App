@@ -82,13 +82,41 @@ class UserController extends BaseController {
 		if ($new_username = Input::get('username')) {
 			if (User::where('username', '=', $new_username)->first()) {
 				return Redirect::to('settings')
-	            	->with('username_message', 'Username already exist, please choose another one.');
+	            	->with('username_message', 'Username already exists, please choose another one.');
 			} else {
 				$user = User::find($id);
 				$user->username = $new_username;
 				$user->push();
 				return Redirect::to('settings')
 	            	->with('username_message', 'Username successfully updated!');
+			}
+		}
+
+		// Update email
+		if ($new_email = Input::get('email')) {
+			if (User::where('email', '=', $new_email)->first()) {
+				return Redirect::to('settings')
+	            	->with('email_message', 'email already exists, please choose another one.');
+			} else {
+				$user = User::find($id);
+				$user->email = $new_email;
+				$user->push();
+				return Redirect::to('settings')
+	            	->with('email_message', 'email successfully updated!');
+			}
+		}
+
+		// Update password
+		if ($new_email = Input::get('email')) {
+			if (User::where('email', '=', $new_email)->first()) {
+				return Redirect::to('settings')
+	            	->with('email_message', 'email already exists, please choose another one.');
+			} else {
+				$user = User::find($id);
+				$user->email = $new_email;
+				$user->push();
+				return Redirect::to('settings')
+	            	->with('email_message', 'email successfully updated!');
 			}
 		}
 	}
