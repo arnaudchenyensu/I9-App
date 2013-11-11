@@ -31,6 +31,13 @@ Route::get('/logout', function()
 		->with('message', 'You are successfully logged out.');
 });
 
+Route::get('/settings', function()
+{
+	if (Auth::check()) {
+		return 'Settings page';
+	}
+});
+
 Route::get('/followers', function()
 {
 	$user = Auth::user();

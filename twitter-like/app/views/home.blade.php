@@ -5,6 +5,7 @@
 <body>
 
 	<h3>{{ Auth::user()->username }}</h3>
+	<a href="settings">Settings</a>
 	<a href="logout">log out</a>
 
 	{{ Form::open(array('url' => 'tweets')) }}
