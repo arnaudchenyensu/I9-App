@@ -79,6 +79,7 @@ Route::post('/login', function()
 });
 
 Route::resource('users', 'UserController');
+Route::resource('tweets', 'TweetController');
 
 
 
