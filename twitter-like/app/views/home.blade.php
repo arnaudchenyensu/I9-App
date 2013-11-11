@@ -8,9 +8,11 @@
 
 	<h3>Tweets</h3>
 
-	@foreach ($tweets as $tweet)
-		<p>{{ '@'. $tweet->user->username }}</p>
-    	<p>{{ $tweet->text }}</p>
+	@foreach ($followings as $following)
+		@foreach ($following->tweets as $tweet)
+			<p>{{ '@'. $following->username }}</p>
+			<p>{{ $tweet->text }}</p>
+		@endforeach
 	@endforeach
 </body>
 </html>

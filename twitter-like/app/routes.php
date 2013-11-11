@@ -15,10 +15,10 @@ Route::get('/', array('as' => 'home', function()
 {
 
 	if (Auth::check()) {
-		$user_id = Auth::user()->id;
-		$tweets = User::find($user_id)->tweets;
+		$user = Auth::user();
+		$followings = $user->followings;
 		return View::make('home')
-			->with('tweets', $tweets);
+			->with('followings', $followings);
 	}
 
 	return View::make('login');
