@@ -38,8 +38,8 @@ class UserController extends BaseController {
 			'email' => $input['email'],
 			'password' => Hash::make($input['password'])
 		));
-
-		return View::make('hello');
+		return Redirect::route('home')
+			->with('message', 'Account successfully created, you can now log in.');
 	}
 
 	/**
@@ -126,6 +126,7 @@ class UserController extends BaseController {
 	{
 		$user = User::find(1);
 		$user->delete();
+		Auth::logout();
 		return Redirect::route('home')
             	->with('message', 'Account successfully deleted!');
 	}
