@@ -78,7 +78,19 @@ class UserController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		// Update Username
+		if ($new_username = Input::get('username')) {
+			if (User::where('username', '=', $new_username)->first()) {
+				return Redirect::to('settings')
+	            	->with('username_message', 'Username already exist, please choose another one.');
+			} else {
+				$user = User::find($id);
+				$user->username = $new_username;
+				$user->push();
+				return Redirect::to('settings')
+	            	->with('username_message', 'Username successfully updated!');
+			}
+		}
 	}
 
 	/**

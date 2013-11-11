@@ -42,7 +42,8 @@ Route::get('/tweets', function()
 Route::get('/settings', function()
 {
 	if (Auth::check()) {
-		return 'Settings page';
+		return View::make('settings')
+			->with('user', Auth::user());
 	}
 });
 
