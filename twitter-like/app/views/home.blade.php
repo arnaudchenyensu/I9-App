@@ -7,7 +7,8 @@
 	<h3>{{ Auth::user()->username }}</h3>
 	<a href="settings">Settings</a>
 	<a href="logout">log out</a></br>
-	<a href="tweets">{{$tweets->count().' Tweets'}}</a>
+	<a href="tweets">{{$tweets->count().' Tweets'}}</a><br>
+	<a href="followings">{{$followings->count().' Following'}}</a>
 
 	{{ Form::open(array('url' => 'tweets')) }}
 		    {{ Form::label('text', 'Compose new Tweet: ') }} 
