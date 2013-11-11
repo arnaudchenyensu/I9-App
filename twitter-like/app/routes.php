@@ -16,9 +16,9 @@ Route::get('/', array('as' => 'home', function()
 
 	if (Auth::check()) {
 		$user = Auth::user();
-		$followings = $user->followings;
 		return View::make('home')
-			->with('followings', $followings);
+			->with('followings', $user->followings)
+			->with('tweets', $user->tweets);
 	}
 
 	return View::make('login');
@@ -29,6 +29,13 @@ Route::get('/logout', function()
 	Auth::logout();
 	return Redirect::route('home')
 		->with('message', 'You are successfully logged out.');
+});
+
+Route::get('/tweets', function()
+{
+	if (Auth::check()) {
+		return Auth::User()->tweets;
+	}
 });
 
 Route::get('/settings', function()
