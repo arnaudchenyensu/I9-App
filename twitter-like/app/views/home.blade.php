@@ -8,7 +8,8 @@
 	<a href="settings">Settings</a>
 	<a href="logout">log out</a></br>
 	<a href="tweets">{{$tweets->count().' Tweets'}}</a><br>
-	<a href="followings">{{$followings->count().' Following'}}</a>
+	<a href="followings">{{$followings->count().' Following'}}</a><br>
+	<a href="followers">{{$followers->count().' Followers'}}</a>
 
 	{{ Form::open(array('url' => 'tweets')) }}
 		    {{ Form::label('text', 'Compose new Tweet: ') }} 

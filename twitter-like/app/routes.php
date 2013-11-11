@@ -18,7 +18,8 @@ Route::get('/', array('as' => 'home', function()
 		$user = Auth::user();
 		return View::make('home')
 			->with('followings', $user->followings)
-			->with('tweets', $user->tweets);
+			->with('tweets', $user->tweets)
+			->with('followers', $user->followers);
 	}
 
 	return View::make('login');
