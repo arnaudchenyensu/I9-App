@@ -124,7 +124,10 @@ class UserController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$user = User::find(1);
+		$user->delete();
+		return Redirect::route('home')
+            	->with('message', 'Account successfully deleted!');
 	}
 
 }

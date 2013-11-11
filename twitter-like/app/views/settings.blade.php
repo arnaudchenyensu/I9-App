@@ -25,5 +25,9 @@
 		    {{ Session::get('password_message') }}
 	{{ Form::close() }}
 
+	{{ Form::open(array('route' => array('users.destroy', $user->id), 'method' => 'delete')) }}
+		    {{ Form::submit('Delete account') }} </br>
+	{{ Form::close() }}
+
 </body>
 </html>
