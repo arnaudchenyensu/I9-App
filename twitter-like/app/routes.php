@@ -24,6 +24,13 @@ Route::get('/', array('as' => 'home', function()
 	return View::make('login');
 }));
 
+Route::get('/logout', function()
+{
+	Auth::logout();
+	return Redirect::route('home')
+		->with('message', 'You are successfully logged out.');
+});
+
 Route::get('/followers', function()
 {
 	$user = Auth::user();
