@@ -107,17 +107,12 @@ class UserController extends BaseController {
 		}
 
 		// Update password
-		if ($new_email = Input::get('email')) {
-			if (User::where('email', '=', $new_email)->first()) {
-				return Redirect::to('settings')
-	            	->with('email_message', 'email already exists, please choose another one.');
-			} else {
-				$user = User::find($id);
-				$user->email = $new_email;
-				$user->push();
-				return Redirect::to('settings')
-	            	->with('email_message', 'email successfully updated!');
-			}
+		if ($new_password = Input::get('password')) {
+			$user = User::find($id);
+			$user->password = Hash::make($new_password);
+			$user->push();
+			return Redirect::to('settings')
+            	->with('password_message', 'password successfully updated!');
 		}
 	}
 
