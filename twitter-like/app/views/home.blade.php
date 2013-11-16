@@ -20,11 +20,15 @@
 
 	<h3>Tweets</h3>
 
+	<div class="btn-group-vertical">
 	@foreach ($followings as $following)
 		@foreach ($following->tweets as $tweet)
+			<button type="button" class="btn btn-default">
 			<p>{{ '@'. $following->username }}</p>
 			<p>{{ $tweet->text }}</p>
+			</button>
 		@endforeach
 	@endforeach
+	</div>
 
 @stop
