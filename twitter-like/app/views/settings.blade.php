@@ -2,6 +2,7 @@
 
 @section('content')
 
+	<a href="/">Go back to homepage</a>
 	{{ Form::open(array('route' => array('users.update', $user->id), 'method' => 'put')) }}
 			<div class="col-xs-3">
 		    {{ Form::text('username', null, array('placeholder'=>'Change your Username', 'class'=>'form-control')) }}
